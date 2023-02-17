@@ -1,4 +1,5 @@
 import React,{useContext} from 'react';
+import { Link } from 'react-router-dom';
 
 import './Header.css';
 import OlxLogo from '../../assets/OlxLogo';
@@ -16,7 +17,7 @@ function Header() {
   const auth=getAuth()
   const {user,setUser}=useContext(AuthContext)
   return (
-    <div className="headerParentDiv">
+    <div className="headerParentDiv"  style={{ width: '96vw' }}>
       <div className="headerChildDiv">
         <div className="brandName">
           <OlxLogo></OlxLogo>
@@ -42,23 +43,27 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span>{user ? user.displayName : 'Login'}</span>
+        <Link to='/login'>
+        <span>{user ? user.displayName : 'Login'}</span>
+        </Link>
           <hr />
         </div>
-        { user &&  <span onClick={()=>{
+        { user &&  <Link><span onClick={()=>{
           signOut(auth).then(() => {
             console.log('user logged out');
             setUser('')
           }).catch((error) => {
             console.log(error);
           });
-        }} >Logout</span>}
+        }} >Logout</span></Link>}
 
         <div className="sellMenu">
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
+            <Link to='/create'>
             <span>SELL</span>
+            </Link>
           </div>
         </div>
       </div>

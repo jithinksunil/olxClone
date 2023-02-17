@@ -3,7 +3,6 @@ import React,{useState,useContext} from 'react';
 import { FirebaseContext} from '../../store/FirebaseContext';
 import './SignUp.css';
 import { Link,useNavigate} from 'react-router-dom';
-// import Logo from '../../olx-logo.png';
 
 import Logo from '../../olx-logo.png';
 

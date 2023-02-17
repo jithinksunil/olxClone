@@ -61,7 +61,9 @@ alert('Check your credential')
           <br />
           <button onClick={handleLogin}>Login</button>
         </form>
+        <Link to='/signup'>
         <a>Signup</a>
+        </Link>
       </div>
     </div>
   );
